@@ -1,44 +1,19 @@
 package login;
 
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Image;
-import java.awt.Insets;
-import java.awt.RenderingHints.Key;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
 
 import Mainhome.Contact;
 import Mainhome.PTB2UI;
 
 public class ChooseWindow extends JFrame {
-
-	private static final long serialVersionUID = 1L;
 
 	public ChooseWindow() {
 
@@ -59,99 +34,13 @@ public class ChooseWindow extends JFrame {
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		setResizable(true);
-
-		functions();
 		createMenuBar();
-		
+		setContentPane(new ChoosePanel());
+		setResizable(true);
 		setVisible(true);
+	
 	}
 	
-	
-
-	public void functions() {
-		
-		JPanel pnBorder = new JPanel();
-		pnBorder.setLayout(new BorderLayout());
-		JPanel pnNorth = new JPanel();
-
-		this.add(pnNorth);
-
-		JLabel lblTitle = new JLabel("WELCOME TO MATHEMATIC CALCULATION");
-
-		pnNorth.add(lblTitle);
-
-		pnBorder.add(pnNorth, BorderLayout.NORTH);
-
-		lblTitle.setForeground(Color.BLACK);
-
-		Font ft = new Font("arial", Font.BOLD, 25);
-
-		lblTitle.setFont(ft);
-		//South
-
-		JPanel pnSouth = new JPanel();
-
-		JButton btnLogout = new JButton("Logout");
-		btnLogout.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent arg0) {
-
-				int ret = JOptionPane.showConfirmDialog(null, "Do you want to Logout?", "Exit",
-						JOptionPane.YES_NO_OPTION);
-
-				if (ret == JOptionPane.YES_OPTION)
-
-					System.exit(0);
-
-			}
-
-		});
-		JButton btnContact = new JButton("Contact");
-		btnContact.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent arg0) {
-					Contact ct= new Contact();
-					ct.setVisible(true);
-
-			}
-
-		});
-	
-		pnSouth.add(btnLogout);
-		pnSouth.add(btnContact);
-
-		pnBorder.add(pnSouth, BorderLayout.SOUTH);
-
-		pnSouth.setBackground(Color.LIGHT_GRAY);
-
-		Border southborder = BorderFactory.createLineBorder(Color.BLUE);
-
-		TitledBorder southTitleBorder =
-
-		new TitledBorder(southborder, "! Helps");
-
-		pnSouth.setBorder(southTitleBorder);
-
-		JPanel pnCenter = new JPanel();
-
-		pnCenter.setLayout(new BoxLayout(pnCenter, BoxLayout.Y_AXIS));
-
-		pnBorder.add(pnCenter, BorderLayout.CENTER);
-
-		Border centerborder = BorderFactory.createLineBorder(Color.BLUE);
-
-		TitledBorder centerTitleBorder = new TitledBorder(centerborder, "  Choose the functions :   ");
-
-		pnCenter.setBorder(centerTitleBorder);
-		
-		Container con = getContentPane();
-
-		con.add(pnBorder);
-		
-	}
-	
-	//MENUBAR
 	private void createMenuBar() {
 
         JMenuBar menubar = new JMenuBar();
@@ -206,5 +95,5 @@ public class ChooseWindow extends JFrame {
 
         setJMenuBar(menubar);
     }
-
+	
 }

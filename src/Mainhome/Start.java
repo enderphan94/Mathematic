@@ -2,7 +2,9 @@ package Mainhome;
 
 import javax.swing.SwingUtilities;
 
+import login.ChoosePanel;
 import login.ChooseWindow;
+import login.LoginWindow;
 
 public class Start implements Runnable {
 	
@@ -12,7 +14,7 @@ public class Start implements Runnable {
 	
 	@Override
 	public void run() {
-		new ChooseWindow();
+		new LoginWindow().setVisible(true);
 		
 	}
 

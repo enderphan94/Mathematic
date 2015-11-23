@@ -40,17 +40,6 @@ public class Contact extends JFrame {
 		setTitle("Contact us");
 		setSize(450, 450);
 		setLocationRelativeTo(null);
-		/*
-		BufferedImage img = null;
-		try {
-		    img = ImageIO.read(new File("C:\\Users\\Ender\\Desktop\\Group\\back.jpg"));
-		} catch (IOException e) {
-		    e.printStackTrace();
-		}
-		Image dimg = img.getScaledInstance(800, 508, Image.SCALE_SMOOTH);
-		ImageIcon imageIcon = new ImageIcon(dimg);
-		setContentPane(new JLabel(imageIcon));
-	*/
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		Content();

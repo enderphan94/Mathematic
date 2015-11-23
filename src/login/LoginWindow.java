@@ -4,9 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.Graphics;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,24 +31,38 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 
 
-public class LoginWindow extends JFrame {
+public class LoginWindow extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-
-	public static void main(String[] args) {
-		JFrame frame = new JFrame("Login");
-		frame.setSize(300, 200);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JPanel panel = new JPanel();
-		frame.add(panel);
+	
+	public LoginWindow() {
+		super("Login");
+		setSize(300, 200);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel panel = new JPanel(){
+			public void paintComponent(Graphics g) {
+				BufferedImage img = null;
+				System.out.println("paint");
+				try {
+					img = ImageIO.read(new File("C:\\Users\\Ender\\Desktop\\Group\\ground.png"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				g.drawImage(img, 0, 0, null);
+				//super.paint(g);
+			}
+		};
+		add(panel);
 		placeComponents(panel);
-
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
+		
+		setVisible(true);
+		setLocationRelativeTo(null);
 	}
+	
+	
 
-	private static void placeComponents(JPanel panel) {
+	private void placeComponents(JPanel panel) {
 		panel.setLayout(null);
 		JLabel userLabel = new JLabel("Email         :");
 		userLabel.setBounds(10, 10, 80, 25);
@@ -66,6 +83,8 @@ public class LoginWindow extends JFrame {
 		JButton loginButton = new JButton("login");
 		loginButton.setBounds(30, 80, 80, 25);
 		panel.add(loginButton);
+		
+		
 
 		// login
 		loginButton.addActionListener(new ActionListener() {
@@ -136,26 +155,22 @@ public class LoginWindow extends JFrame {
 				}
 				ChooseWindow ptb = new ChooseWindow();
 				ptb.setVisible(true);
+				LoginWindow.this.dispose();
 			}
 		});
 		//EXIT
-		JButton registerButton = new JButton("Exit");
-		registerButton.addActionListener(new ActionListener() {
+		JButton btnregis = new JButton("Sign up");
+		btnregis.setBounds(150, 80, 100, 25);
+		panel.add(btnregis);
+		btnregis.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent arg0) {
-
-				int ret = JOptionPane.showConfirmDialog(null, "Do you want to Exit?", "Exit",
-						JOptionPane.YES_NO_OPTION);
-
-				if (ret == JOptionPane.YES_OPTION)
-
-					System.exit(0);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Register rg = new Register();
+				rg.setVisible(true);
 
 			}
-
 		});
-		registerButton.setBounds(180, 80, 80, 25);
-		panel.add(registerButton);
 	}
 
 }
