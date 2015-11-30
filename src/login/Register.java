@@ -145,7 +145,7 @@ public void Signup() {
 
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String passw  =  emailText.getText();
+				String passw  =  passwordText.getText();
 				String hash = DigestUtils.shaHex(passw);
 				String getname = nameText.getText();
 				String ageget= ageText.getText();
@@ -176,7 +176,7 @@ public void Signup() {
 					if( passw.trim().isEmpty()){
 						JOptionPane.showMessageDialog(null, "Please type your password");
 					}									
-					else if ( passcfText.getPassword().equals(passw)){
+					else if ( new String(passcfText.getPassword()).equals(passw)){
 							JOptionPane.showMessageDialog(frame.getComponent(0), "Congratulation, You got an new account!!");
 							try {
 						 	
