@@ -1,4 +1,4 @@
-package mainhome;
+package home;
 
 
 import java.awt.BorderLayout;
@@ -293,7 +293,7 @@ public class PTB2UI extends JFrame {
 					}
 				});
 				thread.start();
-				//Chart
+
 				btnline.addActionListener(new ActionListener() {
 
 					public void actionPerformed(ActionEvent arg0) {

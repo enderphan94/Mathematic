@@ -1,4 +1,4 @@
-package mainhome;
+package home;
 
 public class PTB2Engine {
 	private double a;

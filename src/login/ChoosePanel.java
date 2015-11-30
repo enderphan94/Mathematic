@@ -35,8 +35,8 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-import mainhome.Contact;
-import mainhome.PTB2UI;
+import home.Contact;
+import home.PTB2UI;
 
 public class ChoosePanel extends JPanel {
 

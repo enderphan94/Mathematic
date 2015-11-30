@@ -10,9 +10,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import mainhome.Contact;
-import mainhome.Fabonaci;
-import mainhome.PTB2UI;
+import home.Contact;
+import home.Fabonaci;
+import home.PTB2UI;
 
 public class ChooseWindow extends JFrame {
 

@@ -27,7 +27,7 @@ import javax.swing.border.TitledBorder;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import mainhome.Contact;
+import home.Contact;
 
 public class Register extends JFrame{
 	private static final long serialVersionUID = 1L;

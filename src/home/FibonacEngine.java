@@ -1,4 +1,4 @@
-package mainhome;
+package home;
 
 public class FibonacEngine {
 	public static long fib(long n)

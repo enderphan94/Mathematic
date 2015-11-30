@@ -1,4 +1,4 @@
-package mainhome;
+package home;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,7 +18,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
@@ -28,7 +27,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -52,17 +50,19 @@ public class Contact extends JFrame {
 		JPanel pnBorder = new JPanel();
 		pnBorder.setLayout(new BorderLayout());
 		JPanel pnNorth = new JPanel();
+
 		this.add(pnNorth);
+
 		pnBorder.add(pnNorth, BorderLayout.NORTH);
+	
 		ImageIcon contact = new ImageIcon("put.gif");
 		JLabel label1 = new JLabel(contact);
 		pnNorth.add(label1);
 		
 		//South
-		JTextField txtcomment = new JTextField("Write here!!");
-		txtcomment.setSize(150, 200);
-		
-		
+		JTextField txtcomment = new JTextField("Write here!!",100);
+		txtcomment.setHorizontalAlignment(JTextField.LEFT);
+		txtcomment.setSize(300, 200);
 		JPanel pnSouth = new JPanel();
         	//Button send the feedback
 		JButton btnContact = new JButton("Send");
@@ -79,7 +79,8 @@ public class Contact extends JFrame {
 						  File out = new File("/users/Ender/Desktop/GetUser/Feedback.txt");
 						 if (!out.exists()) {
 			                    out.createNewFile();
-			                }				
+			                }
+						
 						  FileWriter fw = new FileWriter(out.getAbsoluteFile());
 			                BufferedWriter bw = new BufferedWriter(fw);
 			                bw.write(comment);    
@@ -90,37 +91,51 @@ public class Contact extends JFrame {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+
 			}
 
 		});
 
 		pnSouth.add(btnContact);
+
 		pnBorder.add(pnSouth, BorderLayout.SOUTH);
+
 		pnSouth.setBackground(Color.LIGHT_GRAY);
+
 		Border southborder = BorderFactory.createLineBorder(Color.BLUE);
 
 
 		//CENTER
 		JPanel pnCenter = new JPanel(new GridLayout());
+
 		pnCenter.setLayout(new BoxLayout(pnCenter, BoxLayout.Y_AXIS));
+
 		pnBorder.add(pnCenter, BorderLayout.CENTER);
+
 		Border centerborder = BorderFactory.createLineBorder(Color.BLUE);
+
 		TitledBorder centerTitleBorder = new TitledBorder(centerborder, "  My information :   ");
 		centerTitleBorder.setTitleColor(Color.red);
 		JLabel labelinfo = new JLabel("My label");
+
 		labelinfo.setText("<html><br>This application made by Ender Phan<br>"
 				+ "E-mail: enderlocphan@gmail.com<br> "
 				+ "Tel: +372 5911 1421 <br>"
 				+ "Cyber Security Engineering - Estonian Information Technology College <br><br></html>");
 		pnCenter.add(labelinfo);
-		
 		//Feedback
 		JLabel lbwrite = new JLabel("You can write your feedback here: ");
 		pnCenter.add(lbwrite);
 		
-		pnCenter.add(txtcomment,BorderLayout.SOUTH);
-		pnCenter.setBorder(centerTitleBorder);		
-		Container con = getContentPane();	
+		pnCenter.add(txtcomment,BorderLayout.CENTER);
+		pnCenter.setBorder(centerTitleBorder);
+		
+		//Button Feedback
+		//GridBagConstraints gbc = new GridBagConstraints();
+		//gbc.insets = new Insets(20,20,100,100);
+		
+		Container con = getContentPane();
+		
 		con.add(pnBorder);
 	}
 	public void Commt(){

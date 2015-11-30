@@ -1,4 +1,4 @@
-package mainhome;
+package home;
 
 import javax.swing.SwingUtilities;
 
