@@ -132,19 +132,30 @@ public class Register extends JFrame {
 		btnsubmit.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
-
+				String age = ageText.getText();
 				String passw = passwordText.getText();
 				String hash = DigestUtils.shaHex(passw);
 				String getname = nameText.getText();
 				String ageget = ageText.getText();
 				String email = emailText.getText();
+				//age
+				StringBuilder regexs = new StringBuilder();
+				regexs.append("^");
+				regexs.append("^[0-9]");
+				regexs.append("$");
+				Pattern patternage = Pattern.compile(regexs.toString());
+				Matcher matchers = patternage.matcher(age);
+				boolean valids = matchers.matches();
+				if (valids) {
+				} else {
+					JOptionPane.showMessageDialog(null, "Your age is valid");
+					return;
+				}
 				// message
 
 				if (getname.trim().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Please type your name");
-				} else if (ageget.trim().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Please type your age");
-				}
+				} 
 				// email
 				StringBuilder regex = new StringBuilder();
 				regex.append("^");

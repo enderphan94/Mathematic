@@ -55,6 +55,7 @@ public class LoginWindow extends JFrame {
 
 		setVisible(true);
 		setLocationRelativeTo(null);
+		setResizable(false);
 	}
 
 	JLabel userLabel = new JLabel("Email         :");
@@ -78,6 +79,7 @@ public class LoginWindow extends JFrame {
 					inStream.close();
 					return true;
 				}
+			
 			}
 			inStream.close();
 
@@ -189,9 +191,9 @@ public class LoginWindow extends JFrame {
 			ChooseWindow ptb = new ChooseWindow();
 			ptb.setVisible(true);
 			LoginWindow.this.dispose();
-			JOptionPane.showMessageDialog(null, "You have logged in successfully");
+			JOptionPane.showMessageDialog(null, "Welcome \t"+usern+ "\t to Math Application");
 		} else {
-			System.out.println("Wrong password");
+			JOptionPane.showMessageDialog(null, "You need to sign an new account");
 		}
 		
 		

@@ -1,10 +1,13 @@
 package ee.itcollege.math.graphics;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 
 import javax.swing.JPanel;
+import javax.swing.border.StrokeBorder;
 
 public class GraphicsContent extends JPanel {
 	
@@ -28,16 +31,28 @@ public class GraphicsContent extends JPanel {
 		
 		Point lastPoint = null;
 		
+		g.setColor(Color.BLACK);
+		((Graphics2D)g).setStroke(new BasicStroke(10));
 		for (double x = -GraphicsWindow.GRAPHICS_WIDTH / 2; x < GraphicsWindow.GRAPHICS_WIDTH / 2; x++) {
 			double y = a * x * x + b * x + c;
 			
-			if (lastPoint != null) {
-				g.drawLine((int)x, (int)y, (int)lastPoint.getX(), (int)lastPoint.getY());
-			}
-			//		g.fillRect((int)x + GraphicsWindow.GRAPHICS_WIDTH / 2, (int)-y + GraphicsWindow.GRAPHICS_WIDTH / 2, 3, 3);
+			int newX = (int) (x + GraphicsWindow.GRAPHICS_WIDTH / 2);
+			int newY = (int) (-y + GraphicsWindow.GRAPHICS_WIDTH / 2);
 			
-			lastPoint = new Point((int)x, (int)y);
-		}				
+			if (lastPoint != null) {
+				g.drawLine((int)newX, (int)newY, (int)lastPoint.getX(), (int)lastPoint.getY());
+			}
+			
+			
+			lastPoint = new Point((int)newX, (int)newY);
+		}
+		
+		// points
+		g.setColor(Color.red);
+		for (double x = -GraphicsWindow.GRAPHICS_WIDTH / 2; x < GraphicsWindow.GRAPHICS_WIDTH / 2; x++) {
+			double y = a * x * x + b * x + c;
+			g.fillOval((int)x + GraphicsWindow.GRAPHICS_WIDTH / 2 - 2, (int)-y + GraphicsWindow.GRAPHICS_WIDTH / 2 - 2, 4, 4);
+		}	
 	}
 }
 
