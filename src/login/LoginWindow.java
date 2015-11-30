@@ -36,9 +36,6 @@ public class LoginWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel panel = new JPanel() {
-			/**
-			 * 
-			 */
 			private static final long serialVersionUID = 1L;
 
 			public void paintComponent(Graphics g) {
@@ -49,7 +46,6 @@ public class LoginWindow extends JFrame {
 					e.printStackTrace();
 				}
 				g.drawImage(img, 0, 0, null);
-				// super.paint(g);
 			}
 		};
 		add(panel);

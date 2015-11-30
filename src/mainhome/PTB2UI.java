@@ -1,4 +1,4 @@
-package Mainhome;
+package mainhome;
 
 
 import java.awt.BorderLayout;

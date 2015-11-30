@@ -10,9 +10,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import Mainhome.Contact;
-import Mainhome.Fabonaci;
-import Mainhome.PTB2UI;
+import mainhome.Contact;
+import mainhome.Fabonaci;
+import mainhome.PTB2UI;
 
 public class ChooseWindow extends JFrame {
 
@@ -55,7 +55,7 @@ public class ChooseWindow extends JFrame {
 		});
         //Fibonacci
         JMenuItem fibItem = new JMenuItem("Fibonacci");
-        fibItem .setMnemonic(KeyEvent.VK_Q);
+        fibItem .setMnemonic(KeyEvent.VK_F);
         fibItem .addActionListener(new ActionListener() {
 			
 			@Override

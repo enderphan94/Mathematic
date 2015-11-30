@@ -1,4 +1,4 @@
-package Mainhome;
+package mainhome;
 
 import javax.swing.SwingUtilities;
 
@@ -14,7 +14,7 @@ public class Start implements Runnable {
 	
 	@Override
 	public void run() {
-		new ChooseWindow().setVisible(true);
+		new LoginWindow().setVisible(true);
 		
 	}
 
