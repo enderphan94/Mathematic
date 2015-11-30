@@ -1,4 +1,4 @@
-package home;
+package ee.itcollege.math.home;
 
 public class FibonacEngine {
 	public static long fib(long n)

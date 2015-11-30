@@ -1,4 +1,4 @@
-package home;
+package ee.itcollege.math.home;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

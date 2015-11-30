@@ -1,4 +1,4 @@
-package login;
+package ee.itcollege.math.login;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -27,7 +27,7 @@ import javax.swing.border.TitledBorder;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import home.Contact;
+import ee.itcollege.math.home.Contact;
 
 public class Register extends JFrame{
 	private static final long serialVersionUID = 1L;

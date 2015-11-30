@@ -1,4 +1,4 @@
-package login;
+package ee.itcollege.math.login;
 
 
 import java.awt.BorderLayout;
@@ -35,8 +35,8 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-import home.Contact;
-import home.PTB2UI;
+import ee.itcollege.math.home.Contact;
+import ee.itcollege.math.home.PTB2UI;
 
 public class ChoosePanel extends JPanel {
 

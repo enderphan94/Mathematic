@@ -1,4 +1,4 @@
-package graphics;
+package ee.itcollege.math.graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;

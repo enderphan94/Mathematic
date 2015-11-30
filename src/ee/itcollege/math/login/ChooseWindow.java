@@ -1,4 +1,4 @@
-package login;
+package ee.itcollege.math.login;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,9 +10,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import home.Contact;
-import home.Fabonaci;
-import home.PTB2UI;
+import ee.itcollege.math.home.Contact;
+import ee.itcollege.math.home.Fabonaci;
+import ee.itcollege.math.home.PTB2UI;
 
 public class ChooseWindow extends JFrame {
 

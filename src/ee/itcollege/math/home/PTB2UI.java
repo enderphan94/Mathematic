@@ -1,4 +1,4 @@
-package home;
+package ee.itcollege.math.home;
 
 
 import java.awt.BorderLayout;
@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-import graphics.GraphicsWindow;
+import ee.itcollege.math.graphics.GraphicsWindow;
 
 //import loc.graphics.GraphicsContent;
 

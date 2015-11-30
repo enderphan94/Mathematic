@@ -1,4 +1,4 @@
-package listener;
+package ee.itcollege.math.listener;
 
 import javax.swing.JFrame;
 import java.awt.*;

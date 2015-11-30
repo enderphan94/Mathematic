@@ -1,4 +1,4 @@
-package login;
+package ee.itcollege.math.login;
 
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;

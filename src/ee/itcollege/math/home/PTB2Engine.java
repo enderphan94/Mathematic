@@ -1,4 +1,4 @@
-package home;
+package ee.itcollege.math.home;
 
 public class PTB2Engine {
 	private double a;
