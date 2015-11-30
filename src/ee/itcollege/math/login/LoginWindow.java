@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -60,6 +62,32 @@ public class LoginWindow extends JFrame {
 	JLabel passwordLabel = new JLabel("Password :");
 	JPasswordField passwordText = new JPasswordField(20);
 	JButton loginButton = new JButton("login");
+	
+	private boolean checkPassword(String username, String hashp) {
+		try {
+			FileReader inFile = new FileReader("/users/Ender/Desktop/GetUser/submit.txt");
+
+			BufferedReader inStream = new BufferedReader(inFile);
+
+			String line;
+
+			while ((line = inStream.readLine()) != null) {
+				String[] words = line.split("\t");
+				System.out.println("debugging: " + Arrays.toString(words));
+				if (username.equals(words[0]) && hashp.equals(words[1])) {
+					inStream.close();
+					return true;
+				}
+			}
+			inStream.close();
+
+		}
+
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 	private void placeComponents(JPanel panel) {
 		panel.setLayout(null);
@@ -87,11 +115,16 @@ public class LoginWindow extends JFrame {
 
 		loginButton.setBounds(30, 80, 80, 25);
 		loginButton.addKeyListener(enterLogin);
+		loginButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				doLogin();
+			}
+		});
 		panel.add(loginButton);
 
 		// login
-		
-		
+
 		// EXIT
 		JButton btnregis = new JButton("Sign up");
 		btnregis.setBounds(150, 80, 100, 25);
@@ -109,6 +142,7 @@ public class LoginWindow extends JFrame {
 
 	private void doLogin() {
 		String usern = userText.getText();
+		
 
 		if (usern.trim().isEmpty()) {
 
@@ -129,9 +163,7 @@ public class LoginWindow extends JFrame {
 		Pattern pattern = Pattern.compile(regex.toString());
 		Matcher matcher = pattern.matcher(usern);
 		boolean valid = matcher.matches();
-		if (valid) {
-			JOptionPane.showMessageDialog(null, "You have loged in successfully");
-		} else {
+		if (!valid) {
 			JOptionPane.showMessageDialog(null, "Email is invalid");
 			return;
 		}
@@ -151,49 +183,19 @@ public class LoginWindow extends JFrame {
 			return;
 
 		}
-
-		loginButton.addActionListener(new ActionListener() {
-
-		private BufferedReader inStream;
-
-		public void actionPerformed(ActionEvent arg0) {
-
-		   if (checkPassword(usern, hash)) {
-					System.out.println("Logged in!");
-				ChooseWindow ptb = new ChooseWindow();
-					ptb.setVisible(true);
-					LoginWindow.this.dispose();
-				}
-				else {
-					System.out.println("Wrong password");
-				}
-	}
-
-		public boolean checkPassword(String username, String hashp) {
-			try {
-				FileReader inFile = new FileReader("/users/Ender/Desktop/GetUser/submit.txt");
-
-				inStream = new BufferedReader(inFile);
-
-				String inString;
-
-				while ((inString = inStream.readLine()) != null) {
-					String[] words = inString.split("\r\n"); 
-					if (username.equals(words[0]) && hashp.equals(words[1])) {
-					    return true;
-					}
-					System.out.println("debugging: " + Arrays.toString(words));
-				}
-
-			}
-
-			catch (IOException e) {
-				e.printStackTrace();
-			}
-			return true;
+		
+		if (checkPassword(usern, hash)) {
+			System.out.println("Logged in!");
+			ChooseWindow ptb = new ChooseWindow();
+			ptb.setVisible(true);
+			LoginWindow.this.dispose();
+			JOptionPane.showMessageDialog(null, "You have logged in successfully");
+		} else {
+			System.out.println("Wrong password");
 		}
 		
-	});
-}
+		
+
+	}
 
 }

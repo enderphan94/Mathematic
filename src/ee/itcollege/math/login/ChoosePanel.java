@@ -78,6 +78,9 @@ public class ChoosePanel extends JPanel {
 		JLabel lblTitle = new JLabel("WELCOME TO MATHEMATIC CALCULATION");
 		lblTitle.setOpaque(false);
 		pnNorth.add(lblTitle);
+		ImageIcon header = new ImageIcon("mathhead.png");
+		JLabel labeheader = new JLabel(header);
+		pnNorth.add(labeheader);
 		this.add(pnNorth, BorderLayout.NORTH);
 		lblTitle.setForeground(Color.BLACK);
 		Font ft = new Font("arial", Font.BOLD, 25);
