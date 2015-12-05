@@ -3,7 +3,6 @@ package ee.itcollege.math.login;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
@@ -12,9 +11,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,10 +23,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
-
 import org.apache.commons.codec.digest.DigestUtils;
-
-import ee.itcollege.math.home.Contact;
 
 public class Register extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -38,7 +34,7 @@ public class Register extends JFrame {
 		setLocationRelativeTo(null);
 		Signup();
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
+		setIconImage(new ImageIcon(getClass().getResource("register.png")).getImage());
 		setResizable(false);
 	}
 
@@ -47,46 +43,32 @@ public class Register extends JFrame {
 		// JPanel pnBorder = new JPanel();
 		this.setLayout(new BorderLayout());
 		JPanel pnNorth = new JPanel();
-
+		// North
 		this.add(pnNorth);
-
 		JLabel lblTitle = new JLabel("Enter Your Information ");
 		lblTitle.setOpaque(false);
-
 		pnNorth.add(lblTitle);
-
 		this.add(pnNorth, BorderLayout.NORTH);
-
 		lblTitle.setForeground(Color.BLACK);
-
 		Font ft = new Font("arial", Font.BOLD, 20);
-
 		lblTitle.setFont(ft);
+
 		// South
-
 		JPanel pnSouth = new JPanel();
-
 		JButton btnsubmit = new JButton("Submit");
 		final JFrame frame = new JFrame();
-
 		pnSouth.add(btnsubmit);
 		this.add(pnSouth, BorderLayout.SOUTH);
-
 		pnSouth.setBackground(Color.BLACK);
-
-		Border southborder = BorderFactory.createLineBorder(Color.BLACK);
-
+		// Center
 		JPanel pnCenter = new JPanel();
 		pnCenter.setOpaque(false);
 		pnCenter.setLayout(new BoxLayout(pnCenter, BoxLayout.Y_AXIS));
-
 		this.add(pnCenter, BorderLayout.CENTER);
-
 		Border centerborder = BorderFactory.createLineBorder(Color.BLACK);
-
 		TitledBorder centerTitleBorder = new TitledBorder(centerborder, " Registeration Form :   ");
-
 		pnCenter.setBorder(centerTitleBorder);
+
 		// Input
 		pnCenter.setLayout(null);
 		JLabel lbname = new JLabel("Full name   :");
@@ -133,12 +115,12 @@ public class Register extends JFrame {
 
 			public void actionPerformed(ActionEvent arg0) {
 				String age = ageText.getText();
+				@SuppressWarnings("deprecation")
 				String passw = passwordText.getText();
 				String hash = DigestUtils.shaHex(passw);
 				String getname = nameText.getText();
-				String ageget = ageText.getText();
 				String email = emailText.getText();
-				//age
+				// age
 				StringBuilder regexs = new StringBuilder();
 				regexs.append("^");
 				regexs.append("^[0-9]");
@@ -155,7 +137,7 @@ public class Register extends JFrame {
 
 				if (getname.trim().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Please type your name");
-				} 
+				}
 				// email
 				StringBuilder regex = new StringBuilder();
 				regex.append("^");

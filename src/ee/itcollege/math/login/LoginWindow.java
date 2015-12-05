@@ -18,6 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -36,7 +37,7 @@ public class LoginWindow extends JFrame {
 		super("Login");
 		setSize(300, 200);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		setIconImage(new ImageIcon(getClass().getResource("login.png")).getImage());
 		JPanel panel = new JPanel() {
 			private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class LoginWindow extends JFrame {
 	JLabel passwordLabel = new JLabel("Password :");
 	JPasswordField passwordText = new JPasswordField(20);
 	JButton loginButton = new JButton("login");
-	
+
 	private boolean checkPassword(String username, String hashp) {
 		try {
 			FileReader inFile = new FileReader("/users/Ender/Desktop/GetUser/submit.txt");
@@ -79,7 +80,7 @@ public class LoginWindow extends JFrame {
 					inStream.close();
 					return true;
 				}
-			
+
 			}
 			inStream.close();
 
@@ -144,7 +145,6 @@ public class LoginWindow extends JFrame {
 
 	private void doLogin() {
 		String usern = userText.getText();
-		
 
 		if (usern.trim().isEmpty()) {
 
@@ -185,18 +185,16 @@ public class LoginWindow extends JFrame {
 			return;
 
 		}
-		
+
 		if (checkPassword(usern, hash)) {
 			System.out.println("Logged in!");
 			ChooseWindow ptb = new ChooseWindow();
 			ptb.setVisible(true);
 			LoginWindow.this.dispose();
-			JOptionPane.showMessageDialog(null, "Welcome \t"+usern+ "\t to Math Application");
+			JOptionPane.showMessageDialog(null, "Welcome \t" + usern + "\t to Math Application");
 		} else {
 			JOptionPane.showMessageDialog(null, "You need to sign an new account");
 		}
-		
-		
 
 	}
 

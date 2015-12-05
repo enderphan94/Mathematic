@@ -32,7 +32,7 @@ public class GraphicsContent extends JPanel {
 		Point lastPoint = null;
 		
 		g.setColor(Color.BLACK);
-		((Graphics2D)g).setStroke(new BasicStroke(10));
+		((Graphics2D)g).setStroke(new BasicStroke(5));
 		for (double x = -GraphicsWindow.GRAPHICS_WIDTH / 2; x < GraphicsWindow.GRAPHICS_WIDTH / 2; x++) {
 			double y = a * x * x + b * x + c;
 			
@@ -48,10 +48,10 @@ public class GraphicsContent extends JPanel {
 		}
 		
 		// points
-		g.setColor(Color.red);
+		g.setColor(Color.black);
 		for (double x = -GraphicsWindow.GRAPHICS_WIDTH / 2; x < GraphicsWindow.GRAPHICS_WIDTH / 2; x++) {
 			double y = a * x * x + b * x + c;
-			g.fillOval((int)x + GraphicsWindow.GRAPHICS_WIDTH / 2 - 2, (int)-y + GraphicsWindow.GRAPHICS_WIDTH / 2 - 2, 4, 4);
+			g.fillOval((int)x + GraphicsWindow.GRAPHICS_WIDTH / 2 - 1, (int)-y + GraphicsWindow.GRAPHICS_WIDTH / 2 - 1, 2, 2);
 		}	
 	}
 }

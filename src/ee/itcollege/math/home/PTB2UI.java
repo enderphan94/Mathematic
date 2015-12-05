@@ -40,6 +40,7 @@ public class PTB2UI extends JFrame {
 		setSize(400, 300);
 
 		setLocationRelativeTo(null);
+		setIconImage(new ImageIcon(getClass().getResource("quadra.jpg")).getImage());
 
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 

@@ -16,14 +16,19 @@ import ee.itcollege.math.home.PTB2UI;
 
 public class ChooseWindow extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ChooseWindow() {
 
-		setTitle("Welcome to mathematic calculation");
+		setTitle("Welcome To Mathematic Calculation");
 		setSize(600, 600);
 		setLocationRelativeTo(null);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
+		setIconImage(new ImageIcon(getClass().getResource("mathicon.png")).getImage());
 		createMenuBar();
 		setContentPane(new ChoosePanel());
 		setResizable(true);
@@ -34,7 +39,7 @@ public class ChooseWindow extends JFrame {
 	private void createMenuBar() {
 
         JMenuBar menubar = new JMenuBar();
-        ImageIcon icon = new ImageIcon("exit.png");
+        
 
         JMenu file = new JMenu("File");
         file.setMnemonic(KeyEvent.VK_F);
@@ -42,7 +47,8 @@ public class ChooseWindow extends JFrame {
         JMenu func = new JMenu("Functions");
         func.setMnemonic(KeyEvent.VK_T);
         //Quadratic
-        JMenuItem equaItem = new JMenuItem("Quadratic equation");
+        ImageIcon iconequa = new ImageIcon("quadra.jpg");
+        JMenuItem equaItem = new JMenuItem("Quadratic equation",iconequa);
         equaItem.setMnemonic(KeyEvent.VK_Q);
         equaItem.addActionListener(new ActionListener() {
 			
@@ -54,7 +60,8 @@ public class ChooseWindow extends JFrame {
 			}
 		});
         //Fibonacci
-        JMenuItem fibItem = new JMenuItem("Fibonacci");
+        ImageIcon iconfib = new ImageIcon("fibona.png");
+        JMenuItem fibItem = new JMenuItem("Fibonacci",iconfib);
         fibItem .setMnemonic(KeyEvent.VK_F);
         fibItem .addActionListener(new ActionListener() {
 			
@@ -79,6 +86,7 @@ public class ChooseWindow extends JFrame {
 			}
 		});
         //EXIT
+        ImageIcon icon = new ImageIcon("exit.png");
         JMenuItem eMenuItem = new JMenuItem("Exit", icon);
         eMenuItem.setMnemonic(KeyEvent.VK_E);
         eMenuItem.setToolTipText("Exit application");
