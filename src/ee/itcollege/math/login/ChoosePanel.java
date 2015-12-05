@@ -132,7 +132,8 @@ public class ChoosePanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TheoryTabEquation.doshow();
+				
+				TheoryTabFibonacci.doshowing();
 
 			}
 		});
@@ -146,7 +147,7 @@ public class ChoosePanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TheoryTabFibonacci.doshowing();
+				TheoryTabEquation.doshow();;
 
 			}
 		});

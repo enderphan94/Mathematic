@@ -57,39 +57,24 @@ public class PTB2UI extends JFrame {
 		JPanel pnBorder = new JPanel();
 		pnBorder.setLayout(new BorderLayout());
 		JPanel pnNorth = new JPanel();
-
+		
+		//North
 		this.add(pnNorth);
-
 		JLabel lblTitle = new JLabel("Quadratic Equation");
-
 		pnNorth.add(lblTitle);
-
 		pnBorder.add(pnNorth, BorderLayout.NORTH);
-
 		lblTitle.setForeground(Color.BLUE);
-
 		Font ft = new Font("arial", Font.BOLD, 25);
-
 		lblTitle.setFont(ft);
-
 		JPanel pnSouth = new JPanel();
-
 		JButton btnGiai = new JButton("Solve");
-
 		JButton btnXoa = new JButton("Reset");
-
-		JButton btnThoat = new JButton("Exit");
 		JButton btnline = new JButton("Show Chart");
 
 		pnSouth.add(btnGiai);
 		pnSouth.add(btnline);
-
 		pnSouth.add(btnXoa);
-
-		pnSouth.add(btnThoat);
-
 		pnBorder.add(pnSouth, BorderLayout.SOUTH);
-
 		pnSouth.setBackground(Color.LIGHT_GRAY);
 
 		Border southborder = BorderFactory.createLineBorder(Color.RED);
@@ -166,20 +151,6 @@ public class PTB2UI extends JFrame {
 
 		lblc.setPreferredSize(lblkq.getPreferredSize());
 
-		btnThoat.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent arg0) {
-
-				int ret = JOptionPane.showConfirmDialog(null, "Do you want to Exit?", "Exit",
-						JOptionPane.YES_NO_OPTION);
-
-				if (ret == JOptionPane.YES_OPTION)
-
-					System.exit(0);
-
-			}
-
-		});
 
 		btnXoa.addActionListener(new ActionListener() {
 
@@ -272,7 +243,7 @@ public class PTB2UI extends JFrame {
 
 				ImageIcon loading = new ImageIcon("load.gif");
 				frame.add(new JLabel("", loading, JLabel.CENTER));
-
+				frame.setIconImage(new ImageIcon(getClass().getResource("loading.png")).getImage());
 				frame.setSize(400, 350);
 				frame.setVisible(true);
 				frame.setLocationRelativeTo(null);

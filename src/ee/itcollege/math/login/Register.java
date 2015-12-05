@@ -123,7 +123,7 @@ public class Register extends JFrame {
 				// age
 				StringBuilder regexs = new StringBuilder();
 				regexs.append("^");
-				regexs.append("^[0-9]");
+				regexs.append("^[0-9]"+"[0-9]"+"[0-9]");
 				regexs.append("$");
 				Pattern patternage = Pattern.compile(regexs.toString());
 				Matcher matchers = patternage.matcher(age);
