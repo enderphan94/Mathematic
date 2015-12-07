@@ -22,8 +22,6 @@ import javax.swing.border.TitledBorder;
 
 import ee.itcollege.math.graphics.GraphicsWindow;
 
-//import loc.graphics.GraphicsContent;
-
 
 public class PTB2UI extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -38,16 +36,11 @@ public class PTB2UI extends JFrame {
 	public void doShow() {
 
 		setSize(400, 300);
-
 		setLocationRelativeTo(null);
 		setIconImage(new ImageIcon(getClass().getResource("quadra.jpg")).getImage());
-
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
 		addControl();
-
 		setResizable(false);
-
 		setVisible(true);
 
 	}
@@ -70,98 +63,59 @@ public class PTB2UI extends JFrame {
 		JButton btnGiai = new JButton("Solve");
 		JButton btnXoa = new JButton("Reset");
 		JButton btnline = new JButton("Show Chart");
-
+		
+		//South
 		pnSouth.add(btnGiai);
 		pnSouth.add(btnline);
 		pnSouth.add(btnXoa);
 		pnBorder.add(pnSouth, BorderLayout.SOUTH);
 		pnSouth.setBackground(Color.LIGHT_GRAY);
-
 		Border southborder = BorderFactory.createLineBorder(Color.RED);
-
 		TitledBorder southTitleBorder = new TitledBorder(southborder, "Chose functions");
-
 		pnSouth.setBorder(southTitleBorder);
-
+		
+		//Center
 		JPanel pnCenter = new JPanel();
-
 		pnCenter.setLayout(new BoxLayout(pnCenter, BoxLayout.Y_AXIS));
-
 		pnBorder.add(pnCenter, BorderLayout.CENTER);
-
 		Border centerborder = BorderFactory.createLineBorder(Color.RED);
-
 		TitledBorder centerTitleBorder =
-
 		new TitledBorder(centerborder, "  Format: ax\u00b2+bx+c=0   ||    Enter a - b- c:   ");
-
 		pnCenter.setBorder(centerTitleBorder);
-
 		JPanel pna = new JPanel();
-
 		JLabel lbla = new JLabel("Enter a:");
-
 		final JTextField txta = new JTextField(15);
-
 		pna.add(lbla);
-
 		pna.add(txta);
-
 		pnCenter.add(pna);
-
 		JPanel pnb = new JPanel();
-
 		JLabel lblb = new JLabel("Enter b:");
-
 		final JTextField txtb = new JTextField(15);
-
 		pnb.add(lblb);
-
 		pnb.add(txtb);
-
 		pnCenter.add(pnb);
-
 		JPanel pnc = new JPanel();
-
 		JLabel lblc = new JLabel("Enter c:");
-
 		final JTextField txtc = new JTextField(15);
-
 		pnc.add(lblc);
-
 		pnc.add(txtc);
-
 		pnCenter.add(pnc);
-
 		JPanel pnkq = new JPanel();
-
 		JLabel lblkq = new JLabel("Roots here:");
-
 		final JTextField txtkq = new JTextField(15);
-
 		pnkq.add(lblkq);
-
 		pnkq.add(txtkq);
-
 		pnCenter.add(pnkq);
-
 		lbla.setPreferredSize(lblkq.getPreferredSize());
-
 		lblb.setPreferredSize(lblkq.getPreferredSize());
-
 		lblc.setPreferredSize(lblkq.getPreferredSize());
-
-
 		btnXoa.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
 
 				txtb.setText("");
-
 				txtc.setText("");
-
 				txtkq.setText("");
-
 				txta.requestFocus();
 
 			}

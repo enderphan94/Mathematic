@@ -132,7 +132,7 @@ public class ChoosePanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				TheoryTabFibonacci.doshowing();
 
 			}
@@ -142,12 +142,12 @@ public class ChoosePanel extends JPanel {
 		pnCenter.add(button3);
 		button3.setBackground(Color.PINK);
 		button3.setBounds(460, 40, 90, 90);
-
 		button3.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TheoryTabEquation.doshow();;
+				TheoryTabEquation.doshow();
+				;
 
 			}
 		});

@@ -88,41 +88,28 @@ public class Contact extends JFrame {
 		});
 
 		pnSouth.add(btnContact);
-
 		pnBorder.add(pnSouth, BorderLayout.SOUTH);
-
 		pnSouth.setBackground(Color.LIGHT_GRAY);
 
 		// CENTER
 		JPanel pnCenter = new JPanel(new GridLayout());
-
 		pnCenter.setLayout(new BoxLayout(pnCenter, BoxLayout.Y_AXIS));
-
 		pnBorder.add(pnCenter, BorderLayout.CENTER);
-
 		Border centerborder = BorderFactory.createLineBorder(Color.BLUE);
-
 		TitledBorder centerTitleBorder = new TitledBorder(centerborder, "  My information :   ");
 		centerTitleBorder.setTitleColor(Color.red);
 		JLabel labelinfo = new JLabel("My label");
-
 		labelinfo.setText("<html><br>This application made by Ender Phan<br>" + "E-mail: enderlocphan@gmail.com<br> "
 				+ "Tel: +372 5911 1421 <br>"
 				+ "Cyber Security Engineering - Estonian Information Technology College <br><br></html>");
 		pnCenter.add(labelinfo);
+
 		// Feedback
 		JLabel lbwrite = new JLabel("You can write your feedback here: ");
 		pnCenter.add(lbwrite);
-
 		pnCenter.add(txtcomment, BorderLayout.CENTER);
 		pnCenter.setBorder(centerTitleBorder);
-
-		// Button Feedback
-		// GridBagConstraints gbc = new GridBagConstraints();
-		// gbc.insets = new Insets(20,20,100,100);
-
 		Container con = getContentPane();
-
 		con.add(pnBorder);
 	}
 

@@ -68,9 +68,7 @@ public class LoginWindow extends JFrame {
 	private boolean checkPassword(String username, String hashp) {
 		try {
 			FileReader inFile = new FileReader("/users/Ender/Desktop/GetUser/submit.txt");
-
 			BufferedReader inStream = new BufferedReader(inFile);
-
 			String line;
 
 			while ((line = inStream.readLine()) != null) {
@@ -96,13 +94,10 @@ public class LoginWindow extends JFrame {
 		panel.setLayout(null);
 		userLabel.setBounds(10, 10, 80, 25);
 		panel.add(userLabel);
-
 		userText.setBounds(100, 10, 160, 25);
 		panel.add(userText);
-
 		passwordLabel.setBounds(10, 40, 80, 25);
 		panel.add(passwordLabel);
-
 		KeyListener enterLogin = new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -115,7 +110,6 @@ public class LoginWindow extends JFrame {
 		passwordText.setBounds(100, 40, 160, 25);
 		passwordText.addKeyListener(enterLogin);
 		panel.add(passwordText);
-
 		loginButton.setBounds(30, 80, 80, 25);
 		loginButton.addKeyListener(enterLogin);
 		loginButton.addMouseListener(new MouseAdapter() {
@@ -145,18 +139,14 @@ public class LoginWindow extends JFrame {
 
 	private void doLogin() {
 		String usern = userText.getText();
-
 		if (usern.trim().isEmpty()) {
-
 			JOptionPane.showMessageDialog(null, "Please Enter Username");
-
 			userText.selectAll();
-
 			userText.requestFocus();
-
 			return;
 
 		}
+
 		// Using Regular Expression
 		StringBuilder regex = new StringBuilder();
 		regex.append("^");
@@ -177,11 +167,8 @@ public class LoginWindow extends JFrame {
 		if (passw.trim().isEmpty()) {
 
 			JOptionPane.showMessageDialog(null, "Please Enter Password");
-
 			passwordText.selectAll();
-
 			passwordText.requestFocus();
-
 			return;
 
 		}
